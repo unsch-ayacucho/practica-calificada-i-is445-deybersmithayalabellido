@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Productos por proveedor</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body style="background-color: rgb(152,150,174)">
+	<div class="tg-wrap">
+		<h1 style="color: rgb(255,255,255); text-align: center">Lista de proveedores de productos</h1>
+	</div>
+	<div class="tg-wrap">
+		<table class="tg">
+			<tr>
+				<th class="tg-baqh">Nombre del producto</th>
+				<th class="tg-baqh">Precio</th>
+				<th class="tg-baqh">Cantidad</th>
+				<th class="tg-baqh">Detalle de proveedor</th>
+				<th class="tg-baqh">Ubicacion de proveedor (pais -ciudad)</th>
+			</tr>
+			<tr th:each="producto: ${productos}">
+				<td class="tg-0lax" th:text="${producto.nombre}"/>
+				<td class="tg-0lax" th:text="${producto.precio}"/>
+				<td class="tg-0lax" th:text="${producto.cantidad}"/>
+				<td class="tg-0lax" th:text="${producto.proveedor.nombreProveedor}"/>
+				<td class="tg-0lax" th:text="${producto.proveedor.pais} + ' - ' + ${producto.proveedor.ciudad}" />
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
